@@ -1,0 +1,174 @@
+
+
+.custom-navbrand img {
+
+  width: 80px;
+  margin-top: -30px;
+}
+
+.custom-slider-content {
+
+  margin-bottom: 300px;
+}
+
+.custom-more-products {
+
+  margin-top: 50px;
+}
+
+.custom-slide-title h2 {
+
+  font-size: 20vmin !important;
+  z-index: 1000;
+}
+
+.quick-view-single-product-close-btn {
+
+  z-index: 1000;
+}
+
+.custom-slide-img {
+
+  left: 56% !important;
+}
+
+.custom-product .product-info {
+
+  padding-top: 0 !important;
+}
+
+.custom-product .product-badge {
+
+  width: 100px !important;
+  background-color: #2fa935 !important;
+}
+
+.custom-section-padding {
+
+  padding-bottom: 20px !important;
+}
+
+.custom-section-area {
+
+  padding-bottom: 40px !important;
+}
+
+.custom-cta-section {
+
+  margin-bottom: 80px !important;
+}
+
+.custom-section-area-top {
+
+  padding-top: 120px !important;
+  padding-bottom: 40px !important;
+}
+
+.custom-quality-list li {
+
+  width: 20% !important;
+}
+
+.custom-quality {
+
+  display: block;
+  margin: auto;
+}
+
+.custom-quality img {
+
+  width: 80px !important;
+}
+
+.custom-partners-section {
+
+  padding-top: 40px;
+  padding-bottom: 0 !important;
+}
+
+.custom-product:first-child {
+
+  margin-top: 0 !important;
+}
+
+.custom-input-form button {
+
+  width: 20%;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.custom-instagram-section {
+
+  margin-top: 20px;
+}
+
+.custom-instagram-section-product {
+
+  margin-top: 80px;
+}
+
+.custom-products-heading {
+
+  padding-top: 80px !important;
+  padding-bottom: 0 !important;
+}
+
+.custom-nav-bar {
+
+  background-color: #2fa949 !important;
+}
+
+.custom-current-product a {
+
+  color: #ffffff !important;
+}
+
+.custom-nav-product-list li a:hover {
+
+  color: #ffffff !important;
+}
+
+.custom-nav-product-list li::before {
+
+  background-color: #272727 !important;
+}
+
+.custom-product-info {
+
+  padding-top: 0 !important;
+}
+
+@media screen and (max-width: 500px) {
+
+  .custom-slider-content {
+
+    margin-bottom: 200px;
+  }
+
+  .custom-quality-list li {
+
+    width: 50% !important;
+  }
+
+  .custom-input-form {
+
+    margin: 10px;
+  }
+
+  .custom-input-form button {
+
+    width: 50%;
+  }
+
+  .custom-current-product a {
+
+    color: #2fa949 !important;
+  }
+
+  .custom-nav-product-list li a:hover {
+
+    color: #2fa949 !important;
+  }
+}
