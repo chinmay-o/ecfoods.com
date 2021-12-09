@@ -115,7 +115,7 @@ URL:            http://themeforest.net/user/wp_studio
 /*---------------------------
 	Fonts
 ----------------------------*/
-@import url("../../../../../../external.html?link=https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @font-face {
   font-family: "futura-pt-demi";
   src: url(../fonts/futura-pt-demi.otf) format("truetype");
@@ -491,8 +491,9 @@ select {
 }
 @media (max-width: 500px) {
   .quick-view-single-product .view-single-product-inner {
-    width: 300px;
-    left: calc(50% - 150px);
+    width: 96%;
+    left: 2%;
+    z-index: 1000;
   }
 }
 .quick-view-single-product .product-details,
@@ -3639,7 +3640,7 @@ button:active {
 }
 @media (max-width: 767px) {
   .hero-style-2 {
-    height: 400px;
+    height: 70vh;
     min-height: auto;
   }
 }
@@ -4357,7 +4358,7 @@ button:active {
   padding-top: 25px;
 }
 .trendy-product-section .product-info h4, .best-seller-section .product-info h4 {
-  font-family: "Gothic A1", sans-serif;
+  font-family: "futura-pt-demi", sans-serif;
   font-size: 15px;
   font-size: 1rem;
   font-weight: 500;
@@ -7198,6 +7199,7 @@ button:active {
   font-size: 12px;
   font-weight: 400;
   text-transform: none;
+  z-index: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -8968,7 +8970,7 @@ button:active {
   padding-top: 25px;
 }
 .cosmetics-trending-products .product-info h4, .jewelry-trending-products .product-info h4 {
-  font-family: "Gothic A1", sans-serif;
+  font-family: "futura-pt-demi", sans-serif;
   font-size: 15px;
   font-size: 1rem;
   font-weight: 600;

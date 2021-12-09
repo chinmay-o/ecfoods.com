@@ -58,6 +58,16 @@
   margin-bottom: 80px !important;
 }
 
+.custom-cta-section::before {
+
+  background: #fef041 !important;
+}
+
+.custom-cta-section .cta-inner {
+
+  margin-top: 160px !important;
+}
+
 .custom-section-area-top {
 
   padding-top: 120px !important;
@@ -140,6 +150,12 @@
   padding-top: 0 !important;
 }
 
+.custom-about-area .info {
+
+  padding: 80px 50px !important;
+  top: 20px !important;
+}
+
 @media screen and (max-width: 500px) {
 
   .custom-slider-content {
@@ -165,6 +181,21 @@
   .custom-current-product a {
 
     color: #2fa949 !important;
+  }
+
+  .owl-controls {
+
+    display: none !important;
+  }
+
+  .custom-section-area-top {
+
+    padding-top: 0px !important;
+  }
+
+  .custom-cta-section .cta-inner {
+
+    margin-top: 20px !important;
   }
 
   .custom-nav-product-list li a:hover {
