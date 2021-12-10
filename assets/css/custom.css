@@ -156,6 +156,16 @@
   top: 20px !important;
 }
 
+.success-message-enquiry, .success-message-complaint {
+
+  display: none;
+}
+
+.error-message-enquiry, .error-message-complaint {
+
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
 
   .custom-slider-content {

@@ -146,26 +146,28 @@
                         <div class="contact-form-col">
                             <h2>Register Complaint</h2>
                             <div class="contact-form">
-                                <form method="post" class="contact-validation-active" id="contact-form-main">
+                                <form class="contact-validation-active" id="complaint-form-main">
                                     <div>
-                                        <input type="text" name="name" id="name" placeholder="Name*">
+                                        <input type="text" name="Name" placeholder="Name*">
                                     </div>
                                     <div>
-                                        <input type="email" name="email" id="email" placeholder="Mobile No.*">
+                                        <input type="text" name="Mobile" placeholder="Mobile No.*">
                                     </div>
                                     <div class="fullwidth">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected>Contact subject</option>
-                                            <option>Subject 1</option>
-                                            <option>Subject 2</option>
-                                            <option>Subject 3</option>
+                                        <select name="Subject">
+                                            <option disabled="disabled" selected>Contact Subject</option>
+                                            <option>Quality Complaints</option>
+                                            <option>Packaging Complaints</option>
+                                            <option>Service Complaints</option>
                                         </select>
                                     </div>
                                     <div class="fullwidth">
-                                        <textarea name="note"  id="note" placeholder="Case Description..."></textarea>
+                                        <textarea name="Note"  placeholder="Case Description..."></textarea>
                                     </div>
+                                    <h4 class="success-message-complaint text-center">Success: Message Submitted</h4>
+                                    <h4 class="error-message-complaint text-center">Error: Message Not Submitted</h4>
                                     <div class="submit-area">
-                                        <button type="submit" class="theme-btn">Submit It Now</button>
+                                        <button type="submit" class="theme-btn complaint-submit">Submit It Now</button>
                                     </div>
                                 </form>
                             </div>
@@ -296,6 +298,8 @@
     <!-- Custom script for this template -->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/forms.js"></script>
+
 </body>
 
 </html>
