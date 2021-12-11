@@ -172,6 +172,16 @@
   opacity: 1;
 }
 
+.custom-card {
+
+  border: 1px solid black;
+  height: 18vh;
+  max-width: 80%;
+  border-radius: 12px;
+  display: block;
+  margin: auto;
+}
+
 @media screen and (max-width: 500px) {
 
   .custom-slider-content {
