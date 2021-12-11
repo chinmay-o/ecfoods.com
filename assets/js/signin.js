@@ -61,17 +61,22 @@ function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
 
+
+
 function updateSignInStatus(isSignedIn) {
 
-  if (isSignedIn) {
-    apiFetchData = makeApiCall();
-    document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
-    document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
-  } else {
+  setTimeout(function() {
 
-    document.getElementById("signed_header").innerHTML = '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
-    document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
-  }
+    if (isSignedIn) {
+      apiFetchData = makeApiCall();
+      document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
+      document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
+    } else {
+
+      document.getElementById("signed_header").innerHTML = '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
+      document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
+    }
+  }, 2000);
 }
 
 function handleSignInClick(event) {
