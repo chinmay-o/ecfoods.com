@@ -1,5 +1,5 @@
 
-const apiFetchEnquiryData;
+let apiFetchEnquiryData;
 
 const enquiryRegister = [];
 const complaintRegister = [];
