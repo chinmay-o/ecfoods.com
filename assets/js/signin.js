@@ -1,5 +1,5 @@
 
-const apiFetchData = [];
+const apiFetchEnquiryData;
 
 const enquiryRegister = [];
 const complaintRegister = [];
@@ -9,7 +9,7 @@ function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
 
-function makeApiCall(sheetID, dataKey) {
+function makeApiCall(sheetID) {
   var params = {
     // The ID of the spreadsheet to retrieve data from.
     spreadsheetId: sheetID, // TODO: Update placeholder value.
@@ -34,7 +34,7 @@ function makeApiCall(sheetID, dataKey) {
   request.then(function(response) {
 
     // TODO: Change code below to process the `response` object:
-    apiFetchData.push({dataKey: response.result});
+    return(response.result);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
@@ -70,7 +70,7 @@ function updateSignInStatus(isSignedIn) {
 
     var enquirySheetID = '1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0';
     var complaintSheetID = '1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0';
-    makeApiCall(enquirySheetID, 'enquiry');
+    apiFetchEnquiryData = makeApiCall(enquirySheetID);
     document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
 
@@ -92,15 +92,15 @@ function updateSignInStatus(isSignedIn) {
 
 function loadAPIEnquiryData() {
 
-  for (var i = 1; i < apiFetchData.enquiry.values.length; i++) {
+  for (var i = 1; i < apiFetchEnquiryData.values.length; i++) {
 
     enquiryRegister.push(
       {
-        key: apiFetchData.enquiry.values[i][1],
-        date: apiFetchData.enquiry.values[i][0],
-        registeree: apiFetchData.enquiry.values[i][2],
-        contact: apiFetchData.enquiry.values[i][3],
-        subject: apiFetchData.enquiry.values[i][4]
+        key: apiFetchEnquiryData.values[i][1],
+        date: apiFetchEnquiryData.values[i][0],
+        registeree: apiFetchEnquiryData.values[i][2],
+        contact: apiFetchEnquiryData.values[i][3],
+        subject: apiFetchEnquiryData.values[i][4]
       }
     );
   }
