@@ -53,7 +53,9 @@ function initClient() {
 }
 
 function handleClientLoad() {
-  gapi.load('client:auth2', initClient);
+
+  let hash = gapi.load('client:auth2', initClient);
+  console.log(hash);
 }
 
 function updateSignInStatus(isSignedIn) {
