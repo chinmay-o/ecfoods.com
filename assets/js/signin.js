@@ -55,23 +55,16 @@ function initClient() {
 function handleClientLoad() {
 
   let hash = gapi.load('client:auth2', initClient);
-  console.log(hash);
 }
 
 function updateSignInStatus(isSignedIn) {
   if (isSignedIn) {
     makeApiCall();
+    document.getElementById("signed_header").innerHTML == '<h2>Details</h2><button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
+  } else {
+
+    document.getElementById("signed_header").innerHTML == '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>'
   }
-}
-
-if (isSignedIn) {
-
-  document.getElementById("signed_header").innerHTML == '<h2>Details</h2><button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
-}
-
-if (isSignedIn == false) {
-
-  document.getElementById("signed_header").innerHTML == '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>'
 }
 
 function handleSignInClick(event) {
