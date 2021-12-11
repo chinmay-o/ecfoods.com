@@ -100,7 +100,7 @@ function loadAPIEnquiryData(dataSearchKey) {
       {
         key: dataSearchKey.data.values[i][1],
         date: dataSearchKey.data.values[i][0],
-        registeree: dataSearchKey.values[i][2],
+        registeree: dataSearchKey.data.values[i][2],
         contact: dataSearchKey.data.values[i][3],
         subject: dataSearchKey.data.values[i][4]
       }
