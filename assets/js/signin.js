@@ -26,7 +26,7 @@ function makeApiCall() {
 
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
-    return(response.result);
+    apiFetchData = response.result;
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
@@ -65,18 +65,15 @@ function handleClientLoad() {
 
 function updateSignInStatus(isSignedIn) {
 
-  setTimeout(function() {
+  if (isSignedIn) {
+    makeApiCall();
+    document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
+    document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
+  } else {
 
-    if (isSignedIn) {
-      apiFetchData = makeApiCall();
-      document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
-      document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
-    } else {
-
-      document.getElementById("signed_header").innerHTML = '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
-      document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
-    }
-  }, 2000);
+    document.getElementById("signed_header").innerHTML = '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
+    document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
+  }
 }
 
 function handleSignInClick(event) {
