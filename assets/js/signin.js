@@ -100,7 +100,7 @@ function updateSignInStatus(isSignedIn) {
 
 function loadAPIEnquiryData(dataSearchKey) {
 
-  for (var i = 1; i < dataSearchKey.data.values.length; i++) {
+  for (var i = 2; i < dataSearchKey.data.values.length; i++) {
 
     enquiryRegister.push(
       {
@@ -116,7 +116,7 @@ function loadAPIEnquiryData(dataSearchKey) {
 
 function loadAPIComplaintData(dataSearchKey) {
 
-  for (var i = 1; i < dataSearchKey.data.values.length; i++) {
+  for (var i = 2; i < dataSearchKey.data.values.length; i++) {
 
     complaintRegister.push(
       {
