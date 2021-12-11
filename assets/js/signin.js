@@ -11,7 +11,6 @@ function handleClientLoad() {
 
 function makeApiCall(sheetID, dataKey) {
 
-  var dataReturn;
   var params = {
     // The ID of the spreadsheet to retrieve data from.
     spreadsheetId: sheetID, // TODO: Update placeholder value.
@@ -36,12 +35,13 @@ function makeApiCall(sheetID, dataKey) {
   request.then(function(response) {
 
     // TODO: Change code below to process the `response` object:
-    apiFetchData.push({dataKey: response.result});
+    apiFetchData.push(
+      {key: dataKey,
+      data: response.result}
+    );
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
-
-  return(dataReturn);
 }
 
 function initClient() {
@@ -72,13 +72,13 @@ function updateSignInStatus(isSignedIn) {
 
   if (isSignedIn) {
 
-    apiFetchEnquiryData = makeApiCall('1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0', 'enquiry');
+    makeApiCall('1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0', 'enquiry');
     document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
 
     setTimeout(function() {
 
-      loadAPIEnquiryData();
+      loadAPIEnquiryData(apiFetchData.find(entry => entry.key == "enquiry"));
       for (var a = 0; a < enquiryRegister.length; a++) {
 
         document.getElementById("enquiryModelData").innerHTML += '<div class="card-single"><div class="row"><div class="col col-xs-6"><h5>'+ enquiryRegister[a].key +'</h5></div><div class="col col-xs-6"><h5>'+ enquiryRegister[a].date +'</h5></div><div class="col col-xs-6"><h4>'+ enquiryRegister[a].registeree +'</h4></div><div class="col col-xs-6"><h4>'+ enquiryRegister[a].contact +'</h4></div><div class="col col-xs-12"><h4>'+ enquiryRegister[a].subject +'</h4></div></div></div>';
@@ -92,17 +92,17 @@ function updateSignInStatus(isSignedIn) {
   }
 }
 
-function loadAPIEnquiryData() {
+function loadAPIEnquiryData(dataSearchKey) {
 
-  for (var i = 1; i < apiFetchData.values().next().value.enquiry.values.length; i++) {
+  for (var i = 1; i < dataSearchKey.data.values.length; i++) {
 
     enquiryRegister.push(
       {
-        key: apiFetchData.values().next().value.enquiry.values[i][1],
-        date: apiFetchData.values().next().value.enquiry.values[i][0],
-        registeree: apiFetchData.values().next().value.enquiry.values[i][2],
-        contact: apiFetchData.values().next().value.enquiry.values[i][3],
-        subject: apiFetchData.values().next().value.enquiry.values[i][4]
+        key: dataSearchKey.data.value.enquiry.values[i][1],
+        date: dataSearchKey.data.value.enquiry.values[i][0],
+        registeree: dataSearchKey.data.value.enquiry.values[i][2],
+        contact: dataSearchKey.data.value.enquiry.values[i][3],
+        subject: dataSearchKey.data.value.enquiry.values[i][4]
       }
     );
   }
