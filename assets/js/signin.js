@@ -1,5 +1,5 @@
 
-let apiFetchEnquiryData;
+const apiFetchData = [];
 
 const enquiryRegister = [];
 const complaintRegister = [];
@@ -9,7 +9,9 @@ function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
 
-function makeApiCall(sheetID) {
+function makeApiCall(sheetID, dataKey) {
+
+  var dataReturn;
   var params = {
     // The ID of the spreadsheet to retrieve data from.
     spreadsheetId: sheetID, // TODO: Update placeholder value.
@@ -34,10 +36,12 @@ function makeApiCall(sheetID) {
   request.then(function(response) {
 
     // TODO: Change code below to process the `response` object:
-    return(response.result);
+    apiFetchData.push({dataKey: response.result});
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
+
+  return(dataReturn);
 }
 
 function initClient() {
@@ -68,9 +72,7 @@ function updateSignInStatus(isSignedIn) {
 
   if (isSignedIn) {
 
-    var enquirySheetID = '1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0';
-    var complaintSheetID = '1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0';
-    apiFetchEnquiryData = makeApiCall(enquirySheetID);
+    apiFetchEnquiryData = makeApiCall('1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0', 'enquiry');
     document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
 
@@ -92,15 +94,15 @@ function updateSignInStatus(isSignedIn) {
 
 function loadAPIEnquiryData() {
 
-  for (var i = 1; i < apiFetchEnquiryData.values.length; i++) {
+  for (var i = 1; i < apiFetchData.values().next().value.enquiry.values.length; i++) {
 
     enquiryRegister.push(
       {
-        key: apiFetchEnquiryData.values[i][1],
-        date: apiFetchEnquiryData.values[i][0],
-        registeree: apiFetchEnquiryData.values[i][2],
-        contact: apiFetchEnquiryData.values[i][3],
-        subject: apiFetchEnquiryData.values[i][4]
+        key: apiFetchData.values().next().value.enquiry.values[i][1],
+        date: apiFetchData.values().next().value.enquiry.values[i][0],
+        registeree: apiFetchData.values().next().value.enquiry.values[i][2],
+        contact: apiFetchData.values().next().value.enquiry.values[i][3],
+        subject: apiFetchData.values().next().value.enquiry.values[i][4]
       }
     );
   }
