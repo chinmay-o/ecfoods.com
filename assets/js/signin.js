@@ -74,7 +74,7 @@ function updateSignInStatus(isSignedIn) {
 
     makeApiCall('1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0', 'enquiry');
     makeApiCall('1GrAAVUG8Unzm1dRy3ZIPbeq3D1OQrS0WAaZMFTN8Mi8', 'complaint');
-    document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
+    document.getElementById("signed_header").innerHTML = '<h2>Customer Care Details</h2>';
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
     document.getElementById("modalButtons").innerHTML = '<a href="#" data-toggle="modal" data-target="#enquiryModal"><div class="custom-card shadow"><h2>Enquies</h2></div></a><a href="#" data-toggle="modal" data-target="#complaintModal"><div class="custom-card shadow"><h2>Complaints</h2></div></a>';
 
