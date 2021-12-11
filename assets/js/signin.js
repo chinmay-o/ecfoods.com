@@ -64,6 +64,16 @@ function updateSignInStatus(isSignedIn) {
   }
 }
 
+if (isSignedIn) {
+
+  document.getElementById("signed_header").innerHTML == '<h2>Details</h2><button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
+}
+
+if (isSignedIn == false) {
+
+  document.getElementById("signed_header").innerHTML == '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>'
+}
+
 function handleSignInClick(event) {
   gapi.auth2.getAuthInstance().signIn();
 }
