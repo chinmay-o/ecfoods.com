@@ -3,10 +3,15 @@ let apiFetchEnquiryData;
 const enquiryRegister = [];
 const complaintRegister = [];
 
-function makeApiCall() {
+function handleClientLoad() {
+
+  gapi.load('client:auth2', initClient);
+}
+
+function makeApiCall(sheetID, dataVariable) {
   var params = {
     // The ID of the spreadsheet to retrieve data from.
-    spreadsheetId: '1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0', // TODO: Update placeholder value.
+    spreadsheetId: sheetID, // TODO: Update placeholder value.
 
     // The A1 notation of the values to retrieve.
     range: 'responses', // TODO: Update placeholder value.
@@ -28,7 +33,7 @@ function makeApiCall() {
   request.then(function(response) {
 
     // TODO: Change code below to process the `response` object:
-    apiFetchEnquiryData = response.result;
+    dataVariable = response.result;
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
@@ -58,16 +63,13 @@ function initClient() {
   });
 }
 
-function handleClientLoad() {
-
-  gapi.load('client:auth2', initClient);
-}
-
 function updateSignInStatus(isSignedIn) {
 
   if (isSignedIn) {
 
-    makeApiCall();
+    var enquirySheetID = '1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0';
+    var complaintSheetID = '1xPgB1JTmP-zZ4sW0k5zcvJvvHb-bGD8CcfRp-uW7L-0';
+    makeApiCall(enquirySheetID, apiFetchEnquiryData);
     document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
 
@@ -76,7 +78,7 @@ function updateSignInStatus(isSignedIn) {
       loadAPIEnquiryData();
       for (var a = 0; a < enquiryRegister.length; a++) {
 
-        document.getElementById("enquiryModelData").innerHTML += '<div class="card-single"><div class="row"><div class="col col-xs-6"><h4>'+ enquiryRegister[a].key +'</h4></div><div class="col col-xs-6"><h4>'+ enquiryRegister[a].date +'</h4></div><div class="col col-xs-6"><h4>'+ enquiryRegister[a].name +'</h4></div><div class="col col-xs-6"><h4>'+ enquiryRegister[a].contact +'</h4></div><div class="col col-xs-12"><h4>'+ enquiryRegister[a].subject +'</h4></div></div></div>';
+        document.getElementById("enquiryModelData").innerHTML += '<div class="card-single"><div class="row"><div class="col col-xs-6"><h5>'+ enquiryRegister[a].key +'</h5></div><div class="col col-xs-6"><h5>'+ enquiryRegister[a].date +'</h5></div><div class="col col-xs-6"><h4>'+ enquiryRegister[a].registeree +'</h4></div><div class="col col-xs-6"><h4>'+ enquiryRegister[a].contact +'</h4></div><div class="col col-xs-12"><h4>'+ enquiryRegister[a].subject +'</h4></div></div></div>';
       }
       loader = true;
     }, 2000);
