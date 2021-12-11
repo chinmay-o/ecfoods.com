@@ -73,4 +73,5 @@ function handleSignInClick(event) {
 
 function handleSignOutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
+  location.reload();
 }
