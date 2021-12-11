@@ -1,3 +1,5 @@
+var apiFetchData;
+
 function makeApiCall() {
   var params = {
     // The ID of the spreadsheet to retrieve data from.
@@ -23,6 +25,7 @@ function makeApiCall() {
   request.then(function(response) {
 
     // TODO: Change code below to process the `response` object:
+    console.log(response.result);
     return(response.result);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
@@ -59,6 +62,7 @@ function handleClientLoad() {
 }
 
 function updateSignInStatus(isSignedIn) {
+
   if (isSignedIn) {
     makeApiCall();
     document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
