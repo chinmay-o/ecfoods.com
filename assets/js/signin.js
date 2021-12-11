@@ -89,7 +89,7 @@ function updateSignInStatus(isSignedIn) {
 
 function loadAPIEnquiryData() {
 
-  for (var i = 1; i < apiFetchEnquiryData.length; i++) {
+  for (var i = 1; i < apiFetchEnquiryData.values.length; i++) {
 
     enquiryRegister.push(
       {
