@@ -88,7 +88,7 @@ function updateSignInStatus(isSignedIn) {
       }
       for (var b = 0; b < complaintRegister.length; b++) {
 
-        document.getElementById("complaintModelData").innerHTML += '<div class="card-single"><div class="row"><div class="col col-xs-6"><h5>'+ complaintModelData[b].key +'</h5></div><div class="col col-xs-6"><h5>'+ complaintModelData[b].date +'</h5></div><div class="col col-xs-6"><h4>'+ complaintModelData[b].registeree +'</h4></div><div class="col col-xs-6"><h4>'+ complaintModelData[b].contact +'</h4></div><div class="col col-xs-12"><h4>'+ complaintModelData[b].subject +'</h4></div><div class="col col-xs-12"><h4>'+ complaintModelData[b].note +'</h4></div></div></div>';
+        document.getElementById("complaintModelData").innerHTML += '<div class="card-single"><div class="row"><div class="col col-xs-6"><h5>'+ complaintRegister[b].key +'</h5></div><div class="col col-xs-6"><h5>'+ complaintRegister[b].date +'</h5></div><div class="col col-xs-6"><h4>'+ complaintRegister[b].registeree +'</h4></div><div class="col col-xs-6"><h4>'+ complaintRegister[b].contact +'</h4></div><div class="col col-xs-12"><h4>'+ complaintRegister[b].subject +'</h4></div><div class="col col-xs-12"><h4>'+ complaintRegister[b].note +'</h4></div></div></div>';
       }
     }, 2000);
   } else {
