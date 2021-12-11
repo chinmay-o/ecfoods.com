@@ -98,11 +98,11 @@ function loadAPIEnquiryData(dataSearchKey) {
 
     enquiryRegister.push(
       {
-        key: dataSearchKey.data.value.enquiry.values[i][1],
-        date: dataSearchKey.data.value.enquiry.values[i][0],
-        registeree: dataSearchKey.data.value.enquiry.values[i][2],
-        contact: dataSearchKey.data.value.enquiry.values[i][3],
-        subject: dataSearchKey.data.value.enquiry.values[i][4]
+        key: dataSearchKey.data.values[i][1],
+        date: dataSearchKey.data.values[i][0],
+        registeree: dataSearchKey.values[i][2],
+        contact: dataSearchKey.data.values[i][3],
+        subject: dataSearchKey.data.values[i][4]
       }
     );
   }
