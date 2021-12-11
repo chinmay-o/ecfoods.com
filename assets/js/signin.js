@@ -64,7 +64,7 @@ function updateSignInStatus(isSignedIn) {
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
   } else {
 
-    document.getElementById("signed_header").innerHTML = '<h2>Sign In</h2>';
+    document.getElementById("signed_header").innerHTML = '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
   }
 }
