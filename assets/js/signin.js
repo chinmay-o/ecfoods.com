@@ -60,10 +60,10 @@ function handleClientLoad() {
 function updateSignInStatus(isSignedIn) {
   if (isSignedIn) {
     makeApiCall();
-    document.getElementById("signed_header").innerHTML == '<h2>Details</h2><button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
+    document.getElementById("signed_header").innerHTML = '<h2>Details</h2><button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
   } else {
 
-    document.getElementById("signed_header").innerHTML == '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>'
+    document.getElementById("signed_header").innerHTML = '<h2>Sign In</h2><button class="theme-btn" onclick="handleSignInClick()">Sign In</button>';
   }
 }
 
