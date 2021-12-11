@@ -1,4 +1,4 @@
-var apiFetchData;
+let apiFetchData;
 
 function makeApiCall() {
   var params = {
@@ -58,13 +58,13 @@ function initClient() {
 
 function handleClientLoad() {
 
-  let hash = gapi.load('client:auth2', initClient);
+  gapi.load('client:auth2', initClient);
 }
 
 function updateSignInStatus(isSignedIn) {
 
   if (isSignedIn) {
-    makeApiCall();
+    apiFetchData = makeApiCall();
     document.getElementById("signed_header").innerHTML = '<h2>Details</h2>';
     document.getElementById("signingButton").innerHTML = '<button class="theme-btn" onclick="handleSignOutClick()">Sign Out</button>';
   } else {
