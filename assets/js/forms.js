@@ -41,11 +41,28 @@ $("#complaint-form-main").submit((e) => {
 
 function fadeOut(className) {
   setTimeout(function(){
-    $(className).remove();
+    $(className).css("display", "none");
   }, 6000);
 }
 
 $(".enquiry-submit").click(function() {
 
-    $('#contact-form-main input').prop('disabled', true);
+    $('.contact-form').css('pointer-events', 'none');
+    $('.contact-form').css('opacity', '0.6');
+
+    setTimeout(function(){
+      $('.contact-form').css('pointer-events', 'auto');
+      $('.contact-form').css('opacity', '1');
+    }, 4000);
+});
+
+$(".complaint-submit").click(function() {
+
+    $('.contact-form').css('pointer-events', 'none');
+    $('.contact-form').css('opacity', '0.6');
+
+    setTimeout(function(){
+      $('.contact-form').css('pointer-events', 'auto');
+      $('.contact-form').css('opacity', '1');
+    }, 4000);
 });
