@@ -174,12 +174,40 @@
 
 .custom-card {
 
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 18vh;
   max-width: 80%;
-  border-radius: 12px;
+  border-radius: 10px;
   display: block;
   margin: auto;
+  margin-top: 30px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 0%), 0px -1px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.custom-card h2 {
+
+  position: relative;
+  top: 38%;
+  left: 4%;
+}
+
+.modal-title {
+
+  display: inline;
+}
+
+.grid h4 {
+
+  display: inline;
+  margin: auto;
+}
+
+.card-single {
+
+  border: 1px solid green;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 6px;
 }
 
 @media screen and (max-width: 500px) {
