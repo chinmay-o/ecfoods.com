@@ -22,9 +22,8 @@ function makeApiCall() {
   var request = gapi.client.sheets.spreadsheets.values.get(params);
   request.then(function(response) {
 
-    var apiFetchData;
     // TODO: Change code below to process the `response` object:
-    apiFetchData = response.result;
+    return(response.result);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
